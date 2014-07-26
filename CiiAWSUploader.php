@@ -14,8 +14,16 @@ class CiiAWSUploader
 
     private $sizeLimit = 10485760;
 
+    private $_config = null;
+
 	public function __construct($config)
 	{
+		$this->_config = $config;
+	}
+
+	public function upload()
+	{
+
 		$size = $_FILES['file']['size'];
 
 		$pathinfo = pathinfo($_FILES['file']['name']);
@@ -44,19 +52,19 @@ class CiiAWSUploader
 		
 		try {
 			$result = $client->putObject(array(
-			    'Bucket'     => $config['bucket'],
+			    'Bucket'     => $this->_config['bucket'],
 			    'Key'        => CII_CONFIG.'/'.$this->_filename.'.'.$ext,
 			    'SourceFile' => $_FILES['file']['tmp_name'],
 			    'ACL'        => 'public-read',
 			    'ContentType' => 'image/'.$ext
 			));
 		} catch (Exception $e) {
-			print_r($e->getMessage());
-			die();
+			return array(
+				'error' => $e->getMessage()
+			);
 		}
 
-		print_r($result);
-		die();
+		return array('url' => $result['ObjectURL']);
 	}
 
 	private function decrypt($param)
