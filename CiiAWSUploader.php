@@ -64,6 +64,12 @@ class CiiAWSUploader
 			);
 		}
 
+		if (isset($this->_config['cdn_domain']))
+		{
+			$url = parse_url($result['ObjectURL']);
+			return array('url' => $this->_config['cdn_domain'] . $url['path']);
+		}
+
 		return array('url' => $result['ObjectURL']);
 	}
 
