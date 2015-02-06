@@ -1,6 +1,6 @@
 {
-    "name": "charlesportwoodii/ciimsawsuploader",
-    "description": "AWS S3 Uploader",
+    "name": "ciims-plugins/awsuploader",
+    "description": "AWS S3 Uploader plugin for CiiMS",
     "type": "library",
     "keywords": [
         "AWS",
