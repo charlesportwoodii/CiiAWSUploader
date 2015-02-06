@@ -1,5 +1,5 @@
 {
-    "name": "charlesportwoodii/CiiAWSuploader",
+    "name": "charlesportwoodii/ciimsawsuploader",
     "description": "AWS S3 Uploader",
     "type": "library",
     "keywords": [

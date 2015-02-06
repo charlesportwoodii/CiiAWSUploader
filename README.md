@@ -2,6 +2,14 @@
 
 This class enables CiiMS to upload files to Amazon S3, isntead of uploading files to the uploads directory
 
+## Installation
+
+This class should be installed with composer. After installing/uploading CiiMS, run this class
+
+```
+composer require charlesportwoodii/ciiawsupload dev-master
+```
+
 ## How to Use
 
 To use this class, you need to make a configuration change to your ```protected/config/params.php``` file.
