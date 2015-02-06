@@ -22,6 +22,12 @@
         "issues": "https://github.com/charlesportwoodii/CiiAWSUploader/issues",
         "source": "https://github.com/charlesportwoodii/CiiAWSUploader"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ircmaxell/PHP-CryptLib"
+        }
+    ],
     "require": {
         "aws/aws-sdk-php": "2.*",
         "CryptLib/CryptLib": "dev-master"
