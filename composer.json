@@ -2,7 +2,12 @@
     "name": "charlesportwoodii/CiiAWSuploader",
     "description": "AWS S3 Uploader",
     "type": "library",
-    "keywords": ["AWS", "S3", "Amazon", "File Upload"],
+    "keywords": [
+        "AWS",
+        "S3",
+        "Amazon",
+        "File Upload"
+    ],
     "homepage": "https://github.com/charlesportwoodii/CiiAWSUploader",
     "license": "MIT",
     "authors": [
@@ -18,10 +23,13 @@
         "source": "https://github.com/charlesportwoodii/CiiAWSUploader"
     },
     "require": {
-        "aws/aws-sdk-php": "2.*"
+        "aws/aws-sdk-php": "2.*",
+        "CryptLib/CryptLib": "dev-master"
     },
     "autoload": {
-        "classmap": ["CiiAWSUploader.php"],
+        "classmap": [
+            "CiiAWSUploader.php"
+        ],
         "psr-0": {
             "Detection": "namespaced/"
         }
