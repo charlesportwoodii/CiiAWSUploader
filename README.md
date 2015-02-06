@@ -7,7 +7,8 @@ This class enables CiiMS to upload files to Amazon S3, isntead of uploading file
 This class should be installed with composer. After installing/uploading CiiMS, run this class
 
 ```
-composer require charlesportwoodii/ciiawsupload dev-master
+# composer require charlesportwoodii/ciimsawsuploader dev-master # DEV
+composer require charlesportwoodii/ciimsawsuploader {release} # Versioned
 ```
 
 ## How to Use
