@@ -8,7 +8,7 @@ This class should be installed with composer. After installing/uploading CiiMS, 
 
 ```
 # composer require ciims-plugins/awsuploader dev-master # DEV
-composer require ciims-plugins/awsuploader {release} # Versioned
+composer require ciims-plugins/awsuploader 1.0.0 # Versioned
 ```
 
 ## How to Use
