@@ -19,7 +19,7 @@ To use this class, you need to make a configuration change to your ```protected/
 <?php return array(
 
 	[...]
-	'CiiMS' => array(
+	'ciims_plugins' => array(
 		'upload' => array(
 			'class' => 'CiiAWSUploader',
 			'options' => array(

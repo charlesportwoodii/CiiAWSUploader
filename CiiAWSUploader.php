@@ -25,12 +25,13 @@ class CiiAWSUploader extends CiiUploader
 		));
 
 		$factory = new CryptLib\Random\Factory;
-		$file = $factory->getLowStrengthGenerator()->generateString(64);
+		$file = preg_replace('/[^\da-z]/i', '', $factory->getLowStrengthGenerator()->generateString(32));
+		$cdnFilename = $file.'.'.$this->file->getExtension();
 
 		try {
 			$result = $client->putObject(array(
-				'Bucket'      => $this->bucket
-				'Key'         => $key.'/'.$file.'.'.$this->file->getExtension(),
+				'Bucket'      => $this->bucket,
+				'Key'         => $key.'/'.$cdnFilename,
 				'SourceFile'  => $this->file->tmp_name,
 				'ACL'         => 'public-read',
 				'ContentType' => 'image/'.$this->file->getExtension()
@@ -41,12 +42,12 @@ class CiiAWSUploader extends CiiUploader
 			);
 		}
 
-		if ($this->cdn_domain != NULL))
+		if ($this->cdn_domain != NULL)
 		{
 			$url = parse_url($result['ObjectURL']);
-			return array('url' => $this->cdn_domain . $url['path']);
+			return array('success' => true, 'url' => $this->cdn_domain . $url['path'], 'filename' => $file);
 		}
 
-		return array('url' => $result['ObjectURL']);
+		return array('success' => true, 'url' => $result['ObjectURL'], 'filename' => $file);
 	}
 }
