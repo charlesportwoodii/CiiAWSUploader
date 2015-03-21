@@ -8,7 +8,7 @@ class CiiAWSUploader extends CiiUploader
 {
 	public function upload()
 	{
-		$key = defined('CII_CONFIG') ? CII_CONFIG : $_SERVER['SERVER_NAME'];
+		$key = defined('CII_CONFIG') ? CII_CONFIG : $_SERVER['HTTP_HOST'];
 
 		$check = $this->verifyFile();
 
