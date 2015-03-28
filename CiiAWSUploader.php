@@ -58,11 +58,11 @@ class CiiAWSUploader extends CiiUploader
 	 * @return string 
 	 */
 	private function getCdnURI($path)
-	{
-		$cleancdn =  explode('/', $url['path']);
-		unset($cleancdn[0]);
-		unset($cleancdn[1]);
-		reset($cleancdn);
-		return '/' . implode($cleancdn, '/');
-	}
+    {
+        $cleancdn =  explode('/', $path);
+        unset($cleancdn[0]);
+        unset($cleancdn[1]);
+        reset($cleancdn);
+        return implode($cleancdn, '/');
+    }
 }
