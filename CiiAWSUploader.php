@@ -21,7 +21,8 @@ class CiiAWSUploader extends CiiUploader
 		// Instantiate an S3 client
 		$client = Aws\S3\S3Client::factory(array(
 			'key'    => $this->AWS_ACCESS_KEY,
-			'secret' => $this->AWS_SECRET_ACCESS_KEY
+			'secret' => $this->AWS_SECRET_ACCESS_KEY,
+			'region' => $this->region
 		));
 
 		$factory = new CryptLib\Random\Factory;
@@ -45,9 +46,23 @@ class CiiAWSUploader extends CiiUploader
 		if ($this->cdn_domain != NULL)
 		{
 			$url = parse_url($result['ObjectURL']);
-			return array('success' => true, 'url' => $this->cdn_domain . $url['path'], 'filename' => $file);
+			return array('success' => true, 'url' => $this->cdn_domain . $this->getCdnURI($url['path']), 'filename' => $file);
 		}
 
 		return array('success' => true, 'url' => $result['ObjectURL'], 'filename' => $file);
+	}
+
+	/**
+	 * Retrieves a clean version of the CDN URI
+	 * @param  string $path
+	 * @return string 
+	 */
+	private function getCdnURI($path)
+	{
+		$cleancdn =  explode('/', $url['path']);
+		unset($cleancdn[0]);
+		unset($cleancdn[1]);
+		reset($cleancdn);
+		return '/' . implode($cleancdn, '/');
 	}
 }

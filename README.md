@@ -26,7 +26,8 @@ To use this class, you need to make a configuration change to your ```protected/
 				'bucket' => ''
 				'AWS_ACCESS_KEY' => '',
 				'AWS_SECRET_ACCESS_KEY' => '',
-				'cdn_domain' => 'https://cdn.example.com' // Optional
+				'region' => '', // required; @see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+				'cdn_domain' => 'https://cdn.example.com' // set to NULL if not used, if set, no trailing slash
 			)
 		)
 	)
